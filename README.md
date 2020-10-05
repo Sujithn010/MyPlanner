@@ -17,9 +17,9 @@
 <h3>Create Todo Lists</h3>
 <img src = "public/CreateTodoLists.png">
 
+<h3>Schedule Maker</h3>
 <img src = "public/Schedule1.png">
 
 <img src = "public/Schedule2.png">
 
-<h3>Schedule Maker</h3>
 <img src = "public/Schedule3.png">
