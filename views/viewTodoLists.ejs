@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/viewTodoLists.css">
+    <title>Todo List</title>
+</head>
+<body>
+    <div class="backdrop"></div>
+    <header class="main-header">
+        <button class="toggle-button">
+            <span class="toggle-button__bar"></span>
+            <span class="toggle-button__bar"></span>
+            <span class="toggle-button__bar"></span>
+        </button>
+        <p class="main-logo">noteMaker</p>
+        <nav class="main-nav">
+            <ul class="main-nav__items">
+                <li class="main-nav__item"><a href="/makenotes" class="main-nav__item__link">Make Notes</a></li>
+                <li class="main-nav__item"><a href="/todo" class="main-nav__item__link">Todo List</a></li>
+                <li class="main-nav__item"><a href="/scheduleMaker" class="main-nav__item__link">Schedule Maker</a></li>
+                <%if(isAuthenticated){%>
+                    <li class="main-nav__item"><a href="/logout" class="main-nav__item__link">Logout</a></li>
+                <%}else{%>
+                    <li class="main-nav__item"><a href="/login" class="main-nav__item__link">Login</a></li>
+                    <li class="main-nav__item"><a href="/signup" class="main-nav__item__link">Signup</a></li>
+                <%}%>
+            </ul>
+        </nav>
+        <nav class="mobile-nav">
+            <ul class="mobile-nav__items">
+                <li class="mobile-nav__item">
+                    <a href="/makenotes">Make Notes</a>
+                </li>
+                <li class="mobile-nav__item">
+                    <a href="/todo">Todo List</a>
+                </li>
+                <li class="mobile-nav__item mobile-nav__item--cta">
+                    <a href="/schedulemaker">Schedule Maker</a>
+                </li>
+                <%if(isAuthenticated){%>
+                    <li class="mobile-nav__item mobile-nav__item--cta">
+                        <a href="/logout">Logout</a>
+                    </li>
+                <%}else{%>
+                    <li class="mobile-nav__item mobile-nav__item--cta">
+                        <a href="/login">Login</a>
+                    </li>  
+                    <li class="mobile-nav__item mobile-nav__item--cta">
+                        <a href="/signup">Signup</a>
+                    </li> 
+                <%}%>   
+            </ul>
+        </nav>
+    </header>
+    <div class="todo-lists-container">
+        <%if(list.length<=0){%>
+            <p class="no-todo-list">You have no saved todo Lists...</p>
+        <%}else{%>
+        <p class="todo-lists-container-title">Your Todo Lists</p>
+        <%list.map(li=>{%>
+        <div class="todo-lists-content">
+                <input type="hidden" value="<%=li._id%>" name="listId">
+                <p class="todo-lists-title"><%=li.title%></p>
+                <%li.items.map(l=>{%>
+                    <p class="todo-lists-items"><%=l%></p>
+                <%})%>
+                <p class="todo-list-time">Created On: <%=li.createdAt.toString().split("GMT")[0]%></p>
+                <button class="todo-lists-delete" onclick="deleteList(this)">Delete</button>
+        </div>
+        <%})%>
+        <%}%>
+    </div>
+    <script src="/js/shared.js"></script>
+    <script src="/js/viewTodoLists.js"></script>
+</body>
+</html>

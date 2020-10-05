@@ -1,0 +1,177 @@
+.todo-list-container{
+    position:relative;
+    top: 10rem;
+    margin: auto;
+    width: 60%;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 3px 3px 5px 3px rgba(0,0,0,0.3);
+}
+
+.todo-list-header{
+    text-align: center;
+    border: 1px solid black;
+    width: 60%;
+    margin: auto;
+    background: #16392C;
+    color: white;
+    padding: 0.5rem;
+}
+
+.todo-list-errMsg{
+    text-align: center;
+    border: 1px solid red;
+    color: red;
+    width: 50%;
+    margin: auto;
+    margin-top: 1rem;
+    display: none;
+    padding: 0.5rem;
+}
+
+.todo-list-successMsg{
+    border: 1px solid #38C391;
+    background: #4caa87;
+    text-align: center;
+    color: #16392C;
+    width: 30%;
+    margin: auto;
+    margin-top: 1rem;
+    display: none;
+    padding: 0.5rem;
+}
+
+.todo-list-container__viewtodoLists{
+    border: 1px solid black;
+    text-decoration: none;
+    padding: 0.4rem 0.4rem;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    background: #38C391;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+}
+
+.todo-list-container__viewtodoLists:hover,
+.todo-list-container__viewtodoLists:active{
+    color: #16392C;
+    background: #38C391;
+}
+
+.todo-list{
+    /* border: 1px solid black; */
+    margin: auto;
+    margin-top: 1rem;
+    width: 50%;
+}
+
+.todo-list-items{
+    /* text-decoration: none; */
+    list-style: none;
+    padding-left: 0;
+    display: none; 
+}
+
+.todo-list-item{
+    /* display: none; */
+    padding: 0.5rem;
+    background: #38C391;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    margin: 0.5rem;
+}
+
+
+.todo-list-item .delete:hover,
+.todo-list-item .delete:active{
+    cursor: pointer;
+}
+
+.todo-form-container{
+    /* width: 60%;
+    margin: auto; */
+    text-align: center;
+}
+
+.todo-form{
+    padding: 0.5rem;
+    margin: auto;
+    align-items: center;
+    font-size: medium;
+}
+
+.todo-form-title,
+.todo-form-input{
+    display: inline-block;
+    padding: 0.3rem;
+    font-size: medium;
+    margin: 0.5rem;
+    margin-left: 1rem;
+    width: 80%;
+    align-items: center;
+}
+
+.buttons{
+    /* margin: auto; */
+    text-align: center;
+}
+
+.todo-form button{
+    /* display: block; */
+    margin: 1rem;
+    padding: 10px;
+    background: #16392C;
+    color: white;
+    border-radius: 4px;
+    margin-left: 1.2rem;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.todo-form button:hover,
+.todo-form button:active{
+    background: white;
+    color: #16392C;
+    cursor: pointer;
+}
+
+@media (max-width:57rem){
+    .todo-form input,
+    .todo-form label{
+        font-size: small;
+        width: 80%;
+    }
+
+    .todo-list-container{
+        width: 80%;
+        top: 8rem;
+    }
+
+    .todo-form button{
+        /* display: block; */
+        padding: 0.2rem;
+    }
+
+    .todo-list-errMsg{
+        width: 75%;
+        font-size: small;
+    }
+
+    .todo-list-successMsg{
+        width:60%;
+        font-size: small;
+    }
+
+    .todo-list-header{
+        text-align: center;
+        font-size: 1.2rem;
+        width: 80%;
+        padding: 0.1rem;
+    }
+    .todo-list-item{
+        font-size: 0.8rem;
+    }
+}

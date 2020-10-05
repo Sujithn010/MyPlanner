@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/todo.css">
+    <title>Notes</title>
+</head>
+<body>
+    <div class="backdrop"></div>
+    <header class="main-header">
+        <button class="toggle-button">
+            <span class="toggle-button__bar"></span>
+            <span class="toggle-button__bar"></span>
+            <span class="toggle-button__bar"></span>
+        </button>
+        <p class="main-logo">noteMaker</p>
+        <nav class="main-nav">
+            <ul class="main-nav__items">
+                <li class="main-nav__item"><a href="/makenotes" class="main-nav__item__link">Make Notes</a></li>
+                <li class="main-nav__item"><a href="/todo" class="main-nav__item__link">Todo List</a></li>
+                <li class="main-nav__item"><a href="/scheduleMaker" class="main-nav__item__link">Schedule Maker</a></li>
+                <%if(isAuthenticated){%>
+                    <li class="main-nav__item"><a href="/logout" class="main-nav__item__link">Logout</a></li>
+                <%}else{%>
+                    <li class="main-nav__item"><a href="/login" class="main-nav__item__link">Login</a></li>
+                    <li class="main-nav__item"><a href="/signup" class="main-nav__item__link">Signup</a></li>
+                <%}%>
+            </ul>
+        </nav>
+        <nav class="mobile-nav">
+            <ul class="mobile-nav__items">
+                <li class="mobile-nav__item">
+                    <a href="/makenotes">Make Notes</a>
+                </li>
+                <li class="mobile-nav__item">
+                    <a href="/todo">Todo List</a>
+                </li>
+                <li class="mobile-nav__item mobile-nav__item--cta">
+                    <a href="/schedulemaker">Schedule Maker</a>
+                </li>
+                <%if(isAuthenticated){%>
+                    <li class="mobile-nav__item mobile-nav__item--cta">
+                        <a href="/logout">Logout</a>
+                    </li>
+                <%}else{%>
+                    <li class="mobile-nav__item mobile-nav__item--cta">
+                        <a href="/login">Login</a>
+                    </li>  
+                    <li class="mobile-nav__item mobile-nav__item--cta">
+                        <a href="/signup">Signup</a>
+                    </li> 
+                <%}%>    
+            </ul>
+        </nav>
+    </header>
+    <div class="todo-list-container">
+        <p><a href="/viewtodoLists" class="todo-list-container__viewtodoLists">View your Todo Lists</a></p>
+        <h1 class="todo-list-header">Create A Todo List</h1>
+        <p class="todo-list-errMsg"></p>
+        <p class="todo-list-successMsg">List saved successfully</p>
+        <div class="todo-list">
+            <ul class="todo-list-items">
+                <!-- <li class="todo-list-item">
+                    <span class="sample-todo">Sample Todo</span>
+                    <i class="fa fa-minus-circle delete" aria-hidden="true"></i>
+                </li>    -->
+            </ul>
+            <div class="todo-form-container">
+                <form class="todo-form">
+                    <label>Title</label>
+                    <input class="todo-form-title" type="text" name="title"/>
+                    <br>
+                    <label>Item </label>
+                    <input class="todo-form-input" type="text" name="add"/>
+                    <div class="buttons">
+                        <button class="todo-form-addTodo" name="addTodo">Add Todo</button>
+                        <button class="todo-form-saveList" name="saveTodo" type="submit">Save List</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src= "/js/shared.js"></script>
+    <script src="/js/todo.js"></script>
+</body>
+</html>

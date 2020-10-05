@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/scheduleMaker.css">
+    <title>Schedule Maker</title>
+</head>
+<body>
+    <div class="backdrop"></div>
+    <div class="modal">
+        <h1 class="modal__title">Add Item</h1>
+        <div class="add-items">
+            <form class="add-items-form">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" placeholder="Title" required/> 
+                <div class="add-items-form__day">
+                    <label for="day">Day</label>
+                    <select name="day" id="day">
+                        <option value="Sunday">Sunday</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                    </select>
+                </div>
+                <div class="add-items-form__timings">
+                    <div class="add-items-form__start-timing">
+                        <label for="startTime">Start Time</label>
+                        <input type="text" pattern="[0-9]*" inputmode="numeric" placeholder="12" maxlength="2" class="startTimeHH" style="text-align: center; font-size: 14px; width: 2rem; padding-left: 0px;">
+                        <input type="text" pattern="[0-9]*" inputmode="numeric" placeholder="00" maxlength="2" class="startTimeMM" style="text-align: center; font-size: 14px; width: 2rem; padding-left: 0px;">
+                    </div>
+                    <div class="add-items-form__timings__ampm">
+                        <input type="radio" id="start_time" name="start_time" value="am">
+                        <label for="male">am</label>
+                        <input type="radio" id="start_time" name="start_time" value="pm">
+                        <label for="female">pm</label><br>
+                    </div>
+                    <div class="add-items-form__end-timing">
+                        <label for="endTime">End Time</label>
+                        <input type="text" pattern="[0-9]*" inputmode="numeric" placeholder="12" maxlength="2" class="endTimeHH" style="text-align: center; font-size: 14px; width: 2rem; padding-left: 0px;">
+                        <input type="text" pattern="[0-9]*" inputmode="numeric" placeholder="00" maxlength="2" class="endTimeMM" style="text-align: center; font-size: 14px; width: 2rem; padding-left: 0px;">
+                    </div>
+                    <div class="add-items-form__timings__ampm">
+                        <input type="radio" id="end_time" name="end_time" value="am">
+                        <label for="am">am</label>
+                        <input type="radio" id="end_time" name="end_time" value="pm">
+                        <label for="pm">pm</label><br>
+                    </div>
+                    <div class="add-items-form__descripton">
+                        <label for="description">Description</label>
+                        <input type="text" name="description" id="description" placeholder="Description" size="30"/>
+                    </div>
+                    <div class="add-items-form__markAsImp">
+                        <label for="important">Mark as important</label>
+                        <input type="checkbox" id="important" name="important" value="imp">
+                    </div>
+                    <div class="add-items-form__error-message" id="error-message"></div>
+                </div>
+            </form>
+        </div>
+        <div class="modal__actions">
+            <button type="submit" class="modal__action">Add</button>
+            <button class="modal__action modal__action--negative" type="button">Close</button>
+        </div>
+    </div>
+    <header class="main-header">
+        <button class="toggle-button">
+            <span class="toggle-button__bar"></span>
+            <span class="toggle-button__bar"></span>
+            <span class="toggle-button__bar"></span>
+        </button>
+        <p class="main-logo">noteMaker</p>
+        <nav class="main-nav">
+            <ul class="main-nav__items">
+                <li class="main-nav__item"><a href="/makenotes" class="main-nav__item__link">Make Notes</a></li>
+                <li class="main-nav__item"><a href="/todo" class="main-nav__item__link">Todo List</a></li>
+                <li class="main-nav__item"><a href="/scheduleMaker" class="main-nav__item__link">Schedule Maker</a></li>
+                <%if(isAuthenticated){%>
+                    <li class="main-nav__item"><a href="/logout" class="main-nav__item__link">Logout</a></li>
+                <%}else{%>
+                    <li class="main-nav__item"><a href="/login" class="main-nav__item__link">Login</a></li>
+                    <li class="main-nav__item"><a href="/signup" class="main-nav__item__link">Signup</a></li>
+                <%}%>
+            </ul>
+        </nav>
+        <nav class="mobile-nav">
+            <ul class="mobile-nav__items">
+                <li class="mobile-nav__item">
+                    <a href="/makenotes">Make Notes</a>
+                </li>
+                <li class="mobile-nav__item">
+                    <a href="/todo">Todo List</a>
+                </li>
+                <li class="mobile-nav__item mobile-nav__item--cta">
+                    <a href="/schedulemaker">Schedule Maker</a>
+                </li>
+                <%if(isAuthenticated){%>
+                    <li class="mobile-nav__item mobile-nav__item--cta">
+                        <a href="/logout">Logout</a>
+                    </li>
+                <%}else{%>
+                    <li class="mobile-nav__item mobile-nav__item--cta">
+                        <a href="/login">Login</a>
+                    </li>  
+                    <li class="mobile-nav__item mobile-nav__item--cta">
+                        <a href="/signup">Signup</a>
+                    </li> 
+                <%}%>   
+            </ul>
+        </nav>
+    </header >
+    <div class="main-container">
+        <p class="view-container"><a href="/viewSchedule" class="main-container-view">View Your Schedule</a></p>
+        <div class="main-introduction">
+            <h1>Schedule Maker</h1>
+            <p>Create a weekly schedule for your school or college in minutes using our free class schedule builder!</p>
+        </div>
+        <div class="schedule-maker">
+            <div class="schedule-maker-title">
+                <h1 class="title-header">Create your schedule</h1>
+                <p class="schedule-maker__errMsg"></p>
+                <p class="schedule-maker__successMsg">Schedule saved</p>
+                <div class="title-input">
+                    <label for="title">Add a title</label>
+                    <!-- <div class="title-input-box"> -->
+                    <input type="text" name="title" id="schedule-title" placeholder="Schedule title" size="25"/>
+                    <!-- </div> -->
+                </div>
+            </div>
+            <div class="schedule-maker-options">
+                <button class="schedule-maker-options__add">Add</button>
+                <button class="schedule-maker-options__delete">Delete</button>
+                <button class="schedule-maker-options__save">Save</button>
+                <a href="/scheduleMaker"><button class="schedule-maker-options__new">New Schedule</button></a>
+            </div>
+        </div>
+    </div>
+            <div class="schedule-maker__table">
+                <table class="schedule-maker__main-table">
+                    <thead id="table-header" name="header">
+                      <td colspan="7" class="schedule-maker__table-header">Weekly Schedule</td>
+                    </thead>
+                    <tbody>
+                      <tr id="Sunday">
+                        <td class="schedule-maker__table__row-header">Sunday</td>
+                      </tr>
+                      <tr id="Monday">
+                        <td class="schedule-maker__table__row-header">Monday</td>
+                      </tr>
+                      <tr id="Tuesday">
+                        <td class="schedule-maker__table__row-header">Tuesday</td>
+                      </tr>
+                      <tr id="Wednesday">
+                        <td class="schedule-maker__table__row-header">Wednesday</td>
+                      </tr>
+                      <tr id="Thursday">
+                        <td class="schedule-maker__table__row-header">Thursday</td>
+                      </tr>
+                      <tr id="Friday">
+                        <td class="schedule-maker__table__row-header">Friday</td>
+                      </tr>
+                      <tr id="Saturday">
+                        <td class="schedule-maker__table__row-header">Saturday</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+    <script src="/js/scheduleMaker.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+.main-login-form{
+    position: relative;
+    top: 10rem;
+    width: 40%;
+    margin: auto;
+    padding: 2rem;
+    border: 2px solid black;
+    box-shadow: 3px 3px 5px 3px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+.main-login-form__errMsg{
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    border: 1px solid red;
+    color: red;
+}
+
+.login-form input,
+.login-form label{
+    display: block;
+    margin-top: 0.5rem;
+    width: 100%;
+    font: inherit;
+    font-size: large;
+}
+
+.login-form-submit{
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.login-form button{
+    width: 40%;
+    font-weight: bold;
+    background: #16392C;
+    color:white;
+    font-size: 1rem;
+    border-radius: 8px;
+}
+
+.login-form button:active,
+.login-form button:hover{
+    background: white;
+    color: #16392C;
+    cursor: pointer;
+}
+
+.linkto-signup{
+    margin: auto;
+    width: 50%;
+    padding: 0.5rem;
+}
+
+.linkto-signup a{
+    color: black;
+}
+
+.linkto-signup a:hover
+.linkto-signup a:active{
+    color: #38c391;
+}
+
+
+@media (max-width:40rem){
+    .main-login-form{  
+        width: 80%;
+    }
+}

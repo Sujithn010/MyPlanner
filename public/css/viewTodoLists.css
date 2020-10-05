@@ -1,0 +1,97 @@
+.todo-lists-container{
+    /* border: 2px solid black; */
+    position: relative;
+    top:8rem;
+    width: 60%;
+    margin:auto;
+    padding: 1rem;
+}
+
+.no-todo-list{
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: auto;
+}
+
+.todo-lists-content{
+    padding: 0.5rem;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
+    margin:auto;
+    width: 80%;
+    margin-bottom: 1rem;
+}
+
+.todo-lists-container-title{
+    /* border: 2px solid black; */
+    background: #38C391;
+    color: black;
+    text-shadow: 0 2px 0 rgba(0,0,0,0.5);
+    width: 30%;
+    margin: auto;
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.todo-lists-title{
+    background: #16392C;
+    color: white;
+    padding: 0.3rem;
+    padding-left: 0.5rem;
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-bottom: 0;
+}
+
+.todo-lists-items{
+    /* border: 1px solid black; */
+    font-size: 1.2rem;
+    width: 80%;
+    /* text-align: center; */
+    margin-top: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.todo-list-time{
+    font-weight: bold;
+}
+
+.todo-lists-delete{
+    width: 20%;
+    background: #16392C;
+    color:white;
+    font: inherit;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
+    border-radius: 8px;
+}
+
+.todo-lists-delete:hover,
+.todo-lists-delete:active{
+    background:white;
+    color: red;
+    cursor: pointer;
+}
+
+@media (max-width: 50rem){
+    .todo-lists-container-title{
+        width: 80%;
+        font-size: 1.2rem;
+    }
+
+    .todo-lists-container{
+        width: 80%;
+    }
+
+    .todo-lists-delete{
+        width: 40%;
+    }
+
+    .no-todo-list{
+        font-size: 1.1rem;
+    }
+}

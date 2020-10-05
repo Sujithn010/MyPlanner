@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/makeNotes.css">
+    <title>Notes</title>
+</head>
+<body>
+    <div class="backdrop"></div>
+    <header class="main-header">
+        <button class="toggle-button">
+            <span class="toggle-button__bar"></span>
+            <span class="toggle-button__bar"></span>
+            <span class="toggle-button__bar"></span>
+        </button>
+        <p class="main-logo">noteMaker</p>
+        <nav class="main-nav">
+            <ul class="main-nav__items">
+                <li class="main-nav__item"><a href="/makenotes" class="main-nav__item__link">Make Notes</a></li>
+                <li class="main-nav__item"><a href="/todo" class="main-nav__item__link">Todo List</a></li>
+                <li class="main-nav__item"><a href="/scheduleMaker" class="main-nav__item__link">Schedule Maker</a></li>
+                <%if(isAuthenticated){%>
+                    <li class="main-nav__item"><a href="/logout" class="main-nav__item__link">Logout</a></li>
+                <%}else{%>
+                    <li class="main-nav__item"><a href="/login" class="main-nav__item__link">Login</a></li>
+                    <li class="main-nav__item"><a href="/signup" class="main-nav__item__link">Signup</a></li>
+                <%}%>
+            </ul>
+        </nav>
+        <nav class="mobile-nav">
+            <ul class="mobile-nav__items">
+                <li class="mobile-nav__item">
+                    <a href="/makenotes">Make Notes</a>
+                </li>
+                <li class="mobile-nav__item">
+                    <a href="/todo">Todo List</a>
+                </li>
+                <li class="mobile-nav__item mobile-nav__item--cta">
+                    <a href="/schedulemaker">Schedule Maker</a>
+                </li>
+                <%if(isAuthenticated){%>
+                    <li class="mobile-nav__item mobile-nav__item--cta">
+                        <a href="/logout">Logout</a>
+                    </li>
+                <%}else{%>
+                    <li class="mobile-nav__item mobile-nav__item--cta">
+                        <a href="/login">Login</a>
+                    </li>  
+                    <li class="mobile-nav__item mobile-nav__item--cta">
+                        <a href="/signup">Signup</a>
+                    </li> 
+                <%}%>   
+            </ul>
+        </nav>
+    </header>
+    <div class="notes-container">
+        <p><a href="/viewNotes" class="notes-container__viewNotes">View your notes</a></p>
+        <div class="make-notes-introduction">
+            <h1 class="make-notes-title">Notes Maker</h1>
+            <p>Tired of losing track of important information?Take down notes on our app,save them and revisit them any time in the future.</p>
+        </div>
+        <form class="notes-form" action="/submitNotes" method="POST">
+            <p>Add Notes</p>
+            <% if(hasError){ %>
+                <div class="notes-form__errMsg"><%=errorMessage%></div>
+            <% } %>
+            <label for="title">Title</label>
+            <input class="<%= validationErrors.find(e => e.param === 'title') ? 'invalid' : '' %>" type="text" name="title" id="title" value="<%if(hasError){%><%=notes.title%><%}%>">
+            <label for="description">Add a Description</label>
+            <input class="<%= validationErrors.find(e => e.param === 'description') ? 'invalid' : '' %>" name="description" type="text" id="description" value="<%if(hasError){%><%=notes.description%><%}%>"> 
+            <label for="content">Content</label>
+            <textarea class="<%= validationErrors.find(e => e.param === 'content') ? 'invalid' : '' %>" name="content" id="content" rows = "10" cols="60"><%if(hasError){%><%=notes.content%><%}%></textarea>
+            <div class="make-notes-submit-button">
+                <button class="notes-form-button" type="submit">Save</button> 
+            </div>
+        </form>
+    </div>
+    <script src= "/js/shared.js"></script>
+</body>
+</html>

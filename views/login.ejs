@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <title>NoteMaker</title>
+</head>
+<body>
+    <header class="main-header">
+        <p class="main-logo">noteMaker - Login</p>
+    </header>
+    <div class="main-login-form">
+        <% if(errorMessage){ %>
+            <div class="main-login-form__errMsg"><%=errorMessage%></div>
+        <% } %>
+        <form class="login-form" action='/login' method="POST">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" value="<%=oldInput.email%>">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" value="<%=oldInput.password%>"">
+            <div class="login-form-submit">
+                <button type="submit" class="login-submit">Login</button>
+            </div>
+            <div class="linkto-signup">
+                Not a User?<a href="/signup"> Signup</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
